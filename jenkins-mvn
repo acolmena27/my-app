@@ -1,0 +1,12 @@
+node{
+    stage('Git Checkout'){
+		git credentialsId: 'github', 
+		    url: 'https://github.com/acolmena27/my-app.git',
+	}
+	
+	stage('Maven Build'){
+		sh 'mvn clean package'
+	}
+
+}
+
