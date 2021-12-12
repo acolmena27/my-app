@@ -1,10 +1,12 @@
 node{
     stage('Git Checkout'){
+      
 	  url: 'https://github.com/acolmena27/my-app'
 	}
 	
 	stage('Maven Build'){
-		sh 'mvn package'
+        def mnvHome = tool name: 'LocalMaven', type: 'maven'
+		sh '${mnvHome}/bin/mvn package'
 	}
 
 }
